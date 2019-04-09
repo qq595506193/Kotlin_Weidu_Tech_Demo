@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">WeiduTech</string>
+    <string name="title_information">资讯</string>
+    <string name="title_message">消息</string>
+    <string name="title_community">社区</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+</resources>

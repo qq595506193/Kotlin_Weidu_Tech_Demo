@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f2f2f2">
+
+    <ImageView
+        android:id="@+id/iv_home_menu"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginLeft="12dp"
+        android:src="@mipmap/home_nav_btn_menu"
+        app:layout_constraintBottom_toBottomOf="@id/tv_head_information"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_head_information" />
+
+    <TextView
+        android:id="@+id/tv_head_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="14dp"
+        android:text="资讯"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_home_search"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginRight="12dp"
+        android:src="@mipmap/search"
+        app:layout_constraintBottom_toBottomOf="@id/tv_head_information"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_head_information" />
+
+
+</android.support.constraint.ConstraintLayout>
