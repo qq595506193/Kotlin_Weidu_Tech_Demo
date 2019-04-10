@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.stx.xhb.xbanner.XBanner;
 import com.wd.tech.R;
+import com.wd.tech.entity.InformationHomeBean;
 
 public class InformationHomeAdapter extends XRecyclerView.Adapter<XRecyclerView.ViewHolder> {
 
@@ -23,7 +25,19 @@ public class InformationHomeAdapter extends XRecyclerView.Adapter<XRecyclerView.
     private Item_01ViewHolder item_01ViewHolder;
     private Item_02ViewHolder item_02ViewHolder;
     private Item_03ViewHolder item_03ViewHolder;
+    private InformationHomeBean informationHomeBean;
 
+    public InformationHomeAdapter(Context context) {
+        informationHomeBean = new InformationHomeBean();
+        this.context = context;
+    }
+
+    public void setInformationHomeBeans(InformationHomeBean informationHomeBean) {
+        if (informationHomeBean != null) {
+            this.informationHomeBean = informationHomeBean;
+        }
+        notifyDataSetChanged();
+    }
 
     @NonNull
     @Override
@@ -51,7 +65,29 @@ public class InformationHomeAdapter extends XRecyclerView.Adapter<XRecyclerView.
 
     @Override
     public void onBindViewHolder(@NonNull XRecyclerView.ViewHolder viewHolder, int i) {
+        InformationHomeBean.Result result = informationHomeBean.getResult().get(i);
+        if (getItemViewType(i) == BANNER) {
 
+        } else if (getItemViewType(i) == ITEM_01) {
+            Glide.with(context).load(result.getThumbnail()).into(item_01ViewHolder.iv_icon);
+            item_01ViewHolder.tv_name.setText(result.getTitle());
+            item_01ViewHolder.tv_content.setText(result.getSummary());
+            item_01ViewHolder.tv_source.setText(result.getSource());
+            item_01ViewHolder.tv_time.setText(result.getReleaseTime());
+            item_01ViewHolder.tv_share_count.setText(result.getShare());
+            item_01ViewHolder.tv_like_count.setText(result.getCollection());
+        } else if (getItemViewType(i) == ITEM_02) {
+            item_02ViewHolder.tv_content.setText(result.getInfoAdvertisingVo().getContent());
+            Glide.with(context).load(result.getInfoAdvertisingVo().getPic());
+        } else if (getItemViewType(i) == ITEM_03) {
+            Glide.with(context).load(result.getThumbnail()).into(item_03ViewHolder.iv_icon);
+            item_03ViewHolder.tv_name.setText(result.getTitle());
+            item_03ViewHolder.tv_content.setText(result.getSummary());
+            item_03ViewHolder.tv_source.setText(result.getSource());
+            item_03ViewHolder.tv_time.setText(result.getReleaseTime());
+            item_03ViewHolder.tv_share_count.setText(result.getShare());
+            item_03ViewHolder.tv_like_count.setText(result.getCollection());
+        }
     }
 
     @Override

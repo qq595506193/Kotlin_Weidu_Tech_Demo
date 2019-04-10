@@ -10,6 +10,7 @@ import com.wd.tech.callback.IRequestCallback
 import com.wd.tech.contract.InformationHomeContract
 import com.wd.tech.entity.InformationHomeBean
 import com.wd.tech.service.IInformationHomeService
+import io.reactivex.Observable
 import java.util.*
 
 class InformationHomeModel : InformationHomeContract.IInformationHomeModel {

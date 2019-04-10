@@ -1,10 +1,10 @@
 package com.wd.tech.activity
 
-import android.content.Context
 import android.content.Intent
 import android.view.View
 import com.wd.tech.R
 import com.wd.tech.activity.base.BaseActivity
+import com.wd.tech.app.App
 import com.wd.tech.contract.LoginContract
 import com.wd.tech.entity.LoginBean
 import com.wd.tech.presenter.LoginPresenter
@@ -18,7 +18,7 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
 
     private var loginPresenter: LoginPresenter? = null
     private var params: HashMap<String, Any>? = null
-    val context: Context? = this
+
 
     override fun initData() {
         btn_login!!.setOnClickListener(object : View.OnClickListener {
@@ -38,7 +38,7 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
                 params = HashMap()
                 params!!["phone"] = phone
                 params!!["pwd"] = s
-                loginPresenter!!.getLogin(context!!, params)
+                loginPresenter!!.getLogin(App.context!!, params)
 
             }
         })
@@ -57,7 +57,7 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
     }
 
     private fun initClick() {
-        tv_quick_registration!!.setOnClickListener { startActivity(Intent(this@LoginActivity, RegisterActivity::class.java)) }
+        tv_quick_registration!!.setOnClickListener { startActivity(Intent(App.context, RegisterActivity::class.java)) }
     }
 
     override fun bindLayoutId(): Int {
@@ -69,7 +69,7 @@ class LoginActivity : BaseActivity(), LoginContract.ILoginView {
         if (result is LoginBean) {
             if (result.status == "0000") {
                 showToast(result.message!!)
-                startActivity(Intent(this@LoginActivity, MainActivity::class.java))
+                startActivity(Intent(App.context, MainActivity::class.java))
             } else {
                 showToast(result.message!!)
             }

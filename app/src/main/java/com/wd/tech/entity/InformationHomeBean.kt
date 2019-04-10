@@ -1,7 +1,7 @@
 package com.wd.tech.entity
 
 class InformationHomeBean {
-    var result: Result? = null
+    var result: List<Result>? = null
     var message: String? = null
     var status: String? = null
 
@@ -17,5 +17,14 @@ class InformationHomeBean {
         var whetherAdvertising: Int = 0
         var whetherCollection: Int = 0
         var whetherPay: Int = 0
+        var infoAdvertisingVo: InfoAdvertisingVo? = null
+
+        inner class InfoAdvertisingVo {
+            var content: String? = null
+            var id: Int = 0
+            var pic: String? = null
+
+        }
+
     }
 }

@@ -1,6 +1,5 @@
 package com.wd.tech.service
 
-import com.wd.tech.entity.InformationHomeBean
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.QueryMap

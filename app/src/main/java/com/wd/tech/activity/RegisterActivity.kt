@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.View
 import com.wd.tech.R
 import com.wd.tech.activity.base.BaseActivity
+import com.wd.tech.app.App
 import com.wd.tech.contract.RegisterContract
 import com.wd.tech.entity.RegisterBean
 import com.wd.tech.presenter.RegisterPresenter
@@ -17,7 +18,6 @@ class RegisterActivity : BaseActivity(), RegisterContract.IRegisterView {
 
     private var registerPresenter: RegisterPresenter? = null
     private var params: HashMap<String, Any>? = null
-    val context: Context? = this
 
 
     override fun initData() {
@@ -40,7 +40,7 @@ class RegisterActivity : BaseActivity(), RegisterContract.IRegisterView {
                 params!!["nickName"] = name
                 params!!["phone"] = phone
                 params!!["pwd"] = s
-                registerPresenter!!.getRegister(context!!, params)
+                registerPresenter!!.getRegister(App.context!!, params)
 
             }
         })
